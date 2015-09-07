@@ -16,7 +16,6 @@ extension Double {
 
 class FirstViewController: UIViewController {
 
-
     var passwordNeedsUpperCase = false
     var passwordNeedsNumbers = false
     var passwordNeedsSymbols = false
@@ -60,17 +59,21 @@ class FirstViewController: UIViewController {
         steps.value = 6.0
         textField.text = "6"
         length = 6
+        Copy.enabled = true
     }
     
     @IBAction func ClipBoard(sender: UIButton) {
-        pasteBoard.persistent = true
         print(GeneratedPassword.text!)
         pasteBoard.string = GeneratedPassword.text!
+        pasteBoard.persistent = true
     }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        Copy.enabled = false
     }
     
     override func didReceiveMemoryWarning() {
